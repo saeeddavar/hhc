@@ -14,8 +14,16 @@
     header {
       background-color: #2e7d32;
       color: white;
-      text-align: center;
-      padding: 20px;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
     }
     h2 {
       text-align: center;
@@ -54,12 +62,25 @@
       box-shadow: 0 0 20px rgba(0, 128, 0, 0.15);
       cursor: pointer;
     }
+    footer {
+      background-color: #e8f5e9;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #2e7d32;
+      margin-top: 40px;
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>هومیار</h1>
-    <p>پلتفرم خدمات سلامت در منزل</p>
+    <div><strong>هومیار</strong></div>
+    <div class="nav">
+      <a href="homiyar_service_list.html">خانه</a>
+      <a href="#">خدمات من</a>
+      <a href="#">پروفایل من</a>
+      <a href="index.html">خروج</a>
+    </div>
   </header>
 
   <h2>چه خدمتی نیاز دارید؟</h2>
@@ -75,5 +96,9 @@
       <p>تزریق آمپول، سرم و داروها</p>
     </div>
   </div>
+
+  <footer>
+    هومیار - سلامت در خانه، با خیال راحت
+  </footer>
 </body>
 </html>
