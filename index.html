@@ -3,13 +3,50 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>هومیار</title>
+  <title>ورود به هومیار</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
-      margin: 0;
       font-family: Tahoma, sans-serif;
-      background-color: #f9f9f9;
+      background-color: #f1f1f1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .login-box {
+      background-color: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 320px;
+    }
+    .login-box h2 {
+      color: #2e7d32;
+      margin-bottom: 20px;
+    }
+    .login-box input[type="password"] {
+      padding: 10px;
+      width: 100%;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    .login-box button {
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 14px;
+      cursor: pointer;
+      border-radius: 6px;
+      width: 100%;
+    }
+    .main-content {
+      display: none;
     }
     header {
       background-color: #2e7d32;
@@ -17,26 +54,18 @@
       text-align: center;
       padding: 20px;
     }
-    nav {
-      margin-top: 10px;
-    }
     nav a {
       color: white;
       margin: 0 10px;
       text-decoration: none;
       font-weight: bold;
     }
-    h2 {
-      text-align: center;
-      margin-top: 30px;
-      color: #2e7d32;
-    }
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
       padding: 20px;
-      max-width: 1200px;
+      max-width: 1000px;
       margin: 0 auto;
     }
     .card {
@@ -60,45 +89,46 @@
       color: #555;
       font-size: 14px;
     }
-    .btn {
-      background-color: #2e7d32;
-      color: white;
-      padding: 8px 16px;
-      border: none;
-      border-radius: 8px;
-      margin-top: 10px;
-      cursor: pointer;
-      font-size: 14px;
-    }
-    .rating {
-      color: #fbc02d;
-      margin-top: 5px;
-    }
     .btn-group {
       display: flex;
       justify-content: center;
       gap: 10px;
       margin-top: 10px;
     }
+    .btn {
+      background-color: #2e7d32;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
+
+<div class="login-box" id="loginBox">
+  <h2>ورود با رمز عبور</h2>
+  <input type="password" id="passwordInput" placeholder="رمز را وارد کنید">
+  <button onclick="checkPassword()">ورود</button>
+</div>
+
+<div class="main-content" id="mainContent">
   <header>
     <h1>هومیار</h1>
     <p>متخصصین مراقبت زخم</p>
     <nav>
-      <a href="index.html">خانه</a>
+      <a href="index_locked.html">خانه</a>
       <a href="health-info.html">ثبت اطلاعات سلامتی</a>
     </nav>
   </header>
 
-  <h2>انتخاب متخصص برای خدمت مورد نیاز</h2>
   <div class="grid">
     <div class="card">
       <img src="https://img.icons8.com/ios-filled/100/2e7d32/nurse-female.png" alt="آقای حسینی">
       <h3>آقای حسینی</h3>
       <p>کارشناس زخم | ۱۰ سال سابقه</p>
-      <p class="rating">⭐️⭐️⭐️⭐️☆ (۴.۲)</p>
       <div class="btn-group">
         <button class="btn" onclick="location.href='profile-hosseini.html'">مشاهده پروفایل</button>
         <button class="btn" onclick="location.href='reserve.html'">رزرو</button>
@@ -108,22 +138,25 @@
       <img src="https://img.icons8.com/ios-filled/100/2e7d32/nurse-male.png" alt="خانم احمدی">
       <h3>خانم احمدی</h3>
       <p>پرستار ارشد | ۷ سال سابقه</p>
-      <p class="rating">⭐️⭐️⭐️⭐️⭐️ (۴.۸)</p>
       <div class="btn-group">
         <button class="btn" onclick="location.href='profile-ahmadi.html'">مشاهده پروفایل</button>
         <button class="btn" onclick="location.href='reserve.html'">رزرو</button>
       </div>
     </div>
-    <div class="card">
-      <img src="https://img.icons8.com/ios-filled/100/2e7d32/medical-doctor.png" alt="آقای رحمانی">
-      <h3>آقای رحمانی</h3>
-      <p>کارشناس بالینی | ۵ سال سابقه</p>
-      <p class="rating">⭐️⭐️⭐️⭐️ (۴.۰)</p>
-      <div class="btn-group">
-        <button class="btn" onclick="location.href='profile-rahmani.html'">مشاهده پروفایل</button>
-        <button class="btn" onclick="location.href='reserve.html'">رزرو</button>
-      </div>
-    </div>
   </div>
+</div>
+
+<script>
+  function checkPassword() {
+    const password = document.getElementById('passwordInput').value;
+    if (password === '09151114538') {
+      document.getElementById('loginBox').style.display = 'none';
+      document.getElementById('mainContent').style.display = 'block';
+    } else {
+      alert('رمز اشتباه است.');
+    }
+  }
+</script>
+
 </body>
 </html>
