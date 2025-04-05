@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>اطلاعات سلامتی من | هومیار</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Tahoma, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 650px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    h2 {
+      text-align: center;
+      color: #2e7d32;
+      font-size: 24px;
+    }
+    label {
+      display: block;
+      margin-top: 18px;
+      color: #333;
+      font-size: 14px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    textarea {
+      resize: vertical;
+    }
+    .checkbox-group {
+      margin-top: 10px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+    }
+    .checkbox-group label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    button {
+      margin-top: 25px;
+      padding: 12px;
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 15px;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #27642a;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>🩺 اطلاعات سلامتی من</h2>
+    <form>
+      <label for="age">سن:</label>
+      <input type="number" id="age" name="age">
+
+      <label for="gender">جنسیت:</label>
+      <select id="gender" name="gender">
+        <option value="">انتخاب کنید</option>
+        <option value="male">مرد</option>
+        <option value="female">زن</option>
+        <option value="other">سایر</option>
+      </select>
+
+      <label for="height">قد (سانتی‌متر):</label>
+      <input type="number" id="height" name="height">
+
+      <label for="weight">وزن (کیلوگرم):</label>
+      <input type="number" id="weight" name="weight">
+
+      <label>بیماری‌های مزمن (می‌توانید چند مورد انتخاب کنید):</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="conditions" value="diabetes"> دیابت</label>
+        <label><input type="checkbox" name="conditions" value="hypertension"> فشار خون</label>
+        <label><input type="checkbox" name="conditions" value="asthma"> آسم</label>
+        <label><input type="checkbox" name="conditions" value="cardiac"> قلبی</label>
+        <label><input type="checkbox" name="conditions" value="cancer"> سرطان</label>
+        <label><input type="checkbox" name="conditions" value="other"> سایر</label>
+      </div>
+
+      <label for="medications">داروهای مصرفی (اختیاری):</label>
+      <textarea id="medications" name="medications"></textarea>
+
+      <label for="activity">سطح فعالیت بدنی:</label>
+      <select id="activity" name="activity">
+        <option value="">انتخاب کنید</option>
+        <option value="none">نامشخص / هیچ‌کدام</option>
+        <option value="low">کم</option>
+        <option value="medium">متوسط</option>
+        <option value="high">زیاد</option>
+      </select>
+
+      <label>
+        <input type="checkbox" name="consent"> با استفاده از اطلاعات سلامتی من به‌صورت ناشناس در تحقیقات علمی موافقم.
+      </label>
+
+      <button type="submit">ثبت اطلاعات</button>
+    </form>
+  </div>
+</body>
+</html>
