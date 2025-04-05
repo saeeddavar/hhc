@@ -15,7 +15,7 @@
       height: 100vh;
       margin: 0;
     }
-    .login-box {
+    .lock-screen {
       background: white;
       padding: 40px;
       border-radius: 12px;
@@ -23,7 +23,7 @@
       width: 300px;
       text-align: center;
     }
-    h1 {
+    h2 {
       color: #2e7d32;
       margin-bottom: 20px;
     }
@@ -47,15 +47,36 @@
     button:hover {
       background-color: #1b5e20;
     }
+    .hidden {
+      display: none;
+    }
   </style>
 </head>
 <body>
-  <div class="login-box">
-    <h1>هومیار</h1>
+  <div class="lock-screen" id="password-box">
+    <h2>رمز عبور اولیه</h2>
+    <input type="password" id="initial-password" placeholder="رمز ورود">
+    <button onclick="checkPassword()">ورود</button>
+  </div>
+
+  <div class="lock-screen hidden" id="login-box">
+    <h2>هومیار</h2>
     <p>ورود یا ثبت‌نام</p>
     <input type="text" placeholder="شماره همراه یا ایمیل">
     <input type="password" placeholder="رمز عبور">
     <button onclick="location.href='homiyar_service_list.html'">ورود به خدمات</button>
   </div>
+
+  <script>
+    function checkPassword() {
+      const password = document.getElementById("initial-password").value;
+      if (password === "homiyar2024") {
+        document.getElementById("password-box").classList.add("hidden");
+        document.getElementById("login-box").classList.remove("hidden");
+      } else {
+        alert("رمز اشتباه است!");
+      }
+    }
+  </script>
 </body>
 </html>

@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>چه خدمتی نیاز دارید؟ | هومیار</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      font-family: Tahoma, sans-serif;
+      background-color: #f9f9f9;
+    }
+    header {
+      background-color: #2e7d32;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    h2 {
+      text-align: center;
+      margin-top: 30px;
+      color: #2e7d32;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+    .card img {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 10px;
+    }
+    .card h3 {
+      color: #2e7d32;
+      margin: 10px 0 5px;
+    }
+    .card p {
+      color: #555;
+      font-size: 14px;
+    }
+    .card:hover {
+      box-shadow: 0 0 20px rgba(0, 128, 0, 0.15);
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>هومیار</h1>
+    <p>پلتفرم خدمات سلامت در منزل</p>
+  </header>
+
+  <h2>چه خدمتی نیاز دارید؟</h2>
+  <div class="grid">
+    <div class="card" onclick="location.href='service_zakhm.html'">
+      <img src="https://img.icons8.com/color/96/bandage.png" alt="مراقبت زخم">
+      <h3>مراقبت زخم</h3>
+      <p>درمان زخم، تعویض پانسمان، زخم بستر</p>
+    </div>
+    <div class="card" onclick="location.href='#'">
+      <img src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/2e7d32/syringe.png" alt="تزریقات در منزل">
+      <h3>تزریقات در منزل</h3>
+      <p>تزریق آمپول، سرم و داروها</p>
+    </div>
+  </div>
+</body>
+</html>
