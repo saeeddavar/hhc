@@ -62,6 +62,67 @@
       cursor: pointer;
     }
     .hidden { display: none; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    .card img {
+      width: 48px;
+      height: 48px;
+    }
+    .profile-box {
+      max-width: 700px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    .profile-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .profile-header img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .info h3 {
+      color: #2e7d32;
+      margin: 0;
+    }
+    .info p {
+      margin: 5px 0;
+      color: #555;
+    }
+    .schedule h4 {
+      color: #2e7d32;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .tag {
+      background: #e8f5e9;
+      color: #2e7d32;
+      padding: 5px 10px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
@@ -90,16 +151,47 @@
   <div id="main-content" class="hidden">
     <section>
       <h2 style="text-align:center; margin-top:30px;">چه خدمتی نیاز دارید؟</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; padding: 20px;">
-        <div style="background:white; padding:20px; border-radius:12px; text-align:center; box-shadow:0 0 10px rgba(0,0,0,0.05);">
+      <div class="grid">
+        <div class="card">
           <img src="https://img.icons8.com/ios-filled/50/2e7d32/bandage.png" alt="زخم">
           <h3>مراقبت زخم</h3>
           <p>درمان زخم، تعویض پانسمان، زخم بستر</p>
         </div>
-        <div style="background:white; padding:20px; border-radius:12px; text-align:center; box-shadow:0 0 10px rgba(0,0,0,0.05);">
+        <div class="card">
           <img src="https://img.icons8.com/ios-filled/50/2e7d32/injection.png" alt="تزریقات">
           <h3>تزریقات در منزل</h3>
           <p>تزریق آمپول، سرم و داروها</p>
+        </div>
+        <div class="card">
+          <img src="https://img.icons8.com/ios-filled/50/2e7d32/physical-therapy.png" alt="فیزیوتراپی">
+          <h3>فیزیوتراپی خانگی</h3>
+          <p>حرکات اصلاحی، توان‌بخشی بدون دستگاه</p>
+        </div>
+        <div class="card">
+          <img src="https://img.icons8.com/ios-filled/50/2e7d32/stethoscope.png" alt="پزشک">
+          <h3>ویزیت پزشک</h3>
+          <p>پزشک عمومی یا متخصص در محل</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="profile-box">
+        <div class="profile-header">
+          <img src="https://img.icons8.com/ios-filled/100/2e7d32/nurse-female.png" alt="آقای حسینی">
+          <div class="info">
+            <h3>آقای حسینی</h3>
+            <p>کارشناس زخم با ۱۰ سال سابقه</p>
+            <p>امتیاز کاربران: ⭐️⭐️⭐️⭐️☆ (۴.۲ از ۵)</p>
+          </div>
+        </div>
+        <div class="schedule">
+          <h4>برنامه زمانی فعالیت:</h4>
+          <div class="tags">
+            <div class="tag">روزهای زوج</div>
+            <div class="tag">ساعت ۸ تا ۱۱ صبح</div>
+            <div class="tag">غیرفعال در ایام تعطیل</div>
+          </div>
         </div>
       </div>
     </section>
@@ -107,7 +199,6 @@
 
   <script>
     let isSignup = true;
-
     function toggleForm() {
       const title = document.getElementById('form-title');
       const toggle = document.querySelector('.toggle');
@@ -115,7 +206,6 @@
       title.textContent = isSignup ? 'ثبت‌نام' : 'ورود';
       toggle.textContent = isSignup ? 'قبلاً ثبت‌نام کرده‌اید؟ ورود' : 'ثبت‌نام نکرده‌اید؟ ایجاد حساب';
     }
-
     function proceedToServices() {
       document.getElementById('login-box').style.display = 'none';
       document.getElementById('main-content').classList.remove('hidden');
