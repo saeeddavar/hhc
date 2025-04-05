@@ -3,35 +3,35 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>ورود / ثبت‌نام - هومیار</title>
+  <title>هومیار | ورود و خدمات سلامت در منزل</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
       margin: 0;
       font-family: Tahoma, sans-serif;
-      background: #f0f0f0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
+      background-color: #f5f5f5;
+    }
+    header {
+      background-color: #2e7d32;
+      color: white;
+      text-align: center;
+      padding: 20px;
     }
     .container {
       background: white;
+      margin: 30px auto;
       padding: 30px;
       border-radius: 12px;
       box-shadow: 0 0 15px rgba(0,0,0,0.1);
       max-width: 400px;
-      width: 100%;
     }
     h2 {
       text-align: center;
       color: #2e7d32;
-      margin-bottom: 20px;
     }
     label {
       display: block;
       margin-top: 10px;
-      color: #333;
     }
     input[type="text"], input[type="password"] {
       width: 100%;
@@ -55,34 +55,54 @@
       font-size: 16px;
       cursor: pointer;
     }
-    button:hover {
-      background-color: #1b5e20;
-    }
     .toggle {
       text-align: center;
       margin-top: 15px;
       color: #2e7d32;
       cursor: pointer;
-      font-size: 14px;
     }
+    .hidden { display: none; }
   </style>
 </head>
 <body>
-  <div class="container" id="form-box">
+  <header>
+    <h1>هومیار</h1>
+    <p>پلتفرم خدمات سلامت در منزل</p>
+  </header>
+
+  <div class="container" id="login-box">
     <h2 id="form-title">ثبت‌نام</h2>
-    <form id="signup-form">
-      <label for="name">نام کامل</label>
-      <input type="text" id="name" placeholder="مثلاً علی رضایی">
-      <label for="phone">شماره موبایل</label>
-      <input type="text" id="phone" placeholder="مثلاً 09121234567">
-      <label for="password">رمز عبور</label>
-      <input type="password" id="password" placeholder="••••••">
+    <form>
+      <label>نام کامل</label>
+      <input type="text" placeholder="مثلاً علی رضایی">
+      <label>شماره موبایل</label>
+      <input type="text" placeholder="مثلاً 09121234567">
+      <label>رمز عبور</label>
+      <input type="password" placeholder="••••••">
       <div class="checkbox">
-        <input type="checkbox" id="terms"> قوانین را می‌پذیرم
+        <input type="checkbox"> قوانین را می‌پذیرم
       </div>
-      <button type="button" onclick="submitForm()">ثبت‌نام</button>
+      <button type="button" onclick="proceedToServices()">ثبت‌نام / ورود</button>
     </form>
     <div class="toggle" onclick="toggleForm()">قبلاً ثبت‌نام کرده‌اید؟ ورود</div>
+  </div>
+
+  <div id="main-content" class="hidden">
+    <section>
+      <h2 style="text-align:center; margin-top:30px;">چه خدمتی نیاز دارید؟</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; padding: 20px;">
+        <div style="background:white; padding:20px; border-radius:12px; text-align:center; box-shadow:0 0 10px rgba(0,0,0,0.05);">
+          <img src="https://img.icons8.com/ios-filled/50/2e7d32/bandage.png" alt="زخم">
+          <h3>مراقبت زخم</h3>
+          <p>درمان زخم، تعویض پانسمان، زخم بستر</p>
+        </div>
+        <div style="background:white; padding:20px; border-radius:12px; text-align:center; box-shadow:0 0 10px rgba(0,0,0,0.05);">
+          <img src="https://img.icons8.com/ios-filled/50/2e7d32/injection.png" alt="تزریقات">
+          <h3>تزریقات در منزل</h3>
+          <p>تزریق آمپول، سرم و داروها</p>
+        </div>
+      </div>
+    </section>
   </div>
 
   <script>
@@ -90,19 +110,16 @@
 
     function toggleForm() {
       const title = document.getElementById('form-title');
-      const button = document.querySelector('button');
       const toggle = document.querySelector('.toggle');
-      const terms = document.querySelector('.checkbox');
-
       isSignup = !isSignup;
       title.textContent = isSignup ? 'ثبت‌نام' : 'ورود';
-      button.textContent = isSignup ? 'ثبت‌نام' : 'ورود';
       toggle.textContent = isSignup ? 'قبلاً ثبت‌نام کرده‌اید؟ ورود' : 'ثبت‌نام نکرده‌اید؟ ایجاد حساب';
-      terms.style.display = isSignup ? 'block' : 'none';
     }
 
-    function submitForm() {
-      alert(isSignup ? 'ثبت‌نام با موفقیت انجام شد!' : 'ورود موفقیت‌آمیز بود!');
+    function proceedToServices() {
+      document.getElementById('login-box').style.display = 'none';
+      document.getElementById('main-content').classList.remove('hidden');
+      window.scrollTo(0, 0);
     }
   </script>
 </body>
