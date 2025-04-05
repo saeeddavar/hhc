@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>متخصصین مراقبت زخم | هومیار</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      font-family: Tahoma, sans-serif;
+      background-color: #f9f9f9;
+    }
+    header {
+      background-color: #2e7d32;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    h2 {
+      text-align: center;
+      margin-top: 30px;
+      color: #2e7d32;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+    .card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .card h3 {
+      color: #2e7d32;
+      margin: 10px 0 5px;
+    }
+    .card p {
+      color: #555;
+      font-size: 14px;
+    }
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .btn {
+      background-color: #2e7d32;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .rating {
+      color: #fbc02d;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>هومیار</h1>
+    <p>متخصصین مراقبت زخم</p>
+  </header>
+
+  <h2>انتخاب متخصص مورد نظر</h2>
+  <div class="grid">
+    <div class="card">
+      <img src="https://img.icons8.com/ios-filled/100/2e7d32/nurse-female.png" alt="آقای حسینی">
+      <h3>آقای حسینی</h3>
+      <p>کارشناس زخم | ۱۰ سال سابقه</p>
+      <p class="rating">⭐️⭐️⭐️⭐️☆ (۴.۲)</p>
+      <div class="btn-group">
+        <button class="btn" onclick="location.href='profile-hosseini.html'">مشاهده پروفایل</button>
+        <button class="btn" onclick="location.href='reserve.html'">رزرو</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://img.icons8.com/ios-filled/100/2e7d32/nurse-male.png" alt="خانم احمدی">
+      <h3>خانم احمدی</h3>
+      <p>پرستار ارشد | ۷ سال سابقه</p>
+      <p class="rating">⭐️⭐️⭐️⭐️⭐️ (۴.۸)</p>
+      <div class="btn-group">
+        <button class="btn">مشاهده پروفایل</button>
+        <button class="btn">رزرو</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://img.icons8.com/ios-filled/100/2e7d32/medical-doctor.png" alt="آقای رحمانی">
+      <h3>آقای رحمانی</h3>
+      <p>کارشناس بالینی | ۵ سال سابقه</p>
+      <p class="rating">⭐️⭐️⭐️⭐️ (۴.۰)</p>
+      <div class="btn-group">
+        <button class="btn">مشاهده پروفایل</button>
+        <button class="btn">رزرو</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
