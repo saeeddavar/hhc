@@ -3,153 +3,107 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>هومیار | خدمات سلامت در منزل</title>
+  <title>ورود / ثبت‌نام - هومیار</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
+      margin: 0;
       font-family: Tahoma, sans-serif;
-      margin: 0;
-      background-color: #f5f5f5;
+      background: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
     }
-    header {
-      background-color: #2e7d32;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
-    h1, h2 {
-      margin: 0;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      padding: 20px;
-    }
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      text-align: center;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-      cursor: pointer;
-    }
-    .card:hover {
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-    .card img {
-      width: 64px;
-      height: 64px;
-    }
-    .profile-box {
-      max-width: 700px;
-      margin: 40px auto;
+    .container {
       background: white;
       padding: 30px;
       border-radius: 12px;
       box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      max-width: 400px;
+      width: 100%;
     }
-    .profile-header {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-    .profile-header img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-    .info h2 { color: #2e7d32; margin: 0; }
-    .info p { margin: 5px 0; color: #555; }
-    .schedule { margin-top: 20px; }
-    .schedule h3 { color: #2e7d32; }
-    .tags {
-      display: flex; flex-wrap: wrap; gap: 10px;
-      margin-top: 10px;
-    }
-    .tag {
-      background: #e8f5e9;
+    h2 {
+      text-align: center;
       color: #2e7d32;
-      padding: 5px 10px;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      color: #333;
+    }
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 10px;
       border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-top: 5px;
+    }
+    .checkbox {
+      margin-top: 10px;
       font-size: 14px;
     }
-    .reserve {
+    button {
       margin-top: 20px;
-      text-align: center;
-    }
-    .reserve button {
-      padding: 10px 20px;
-      background: #2e7d32;
+      width: 100%;
+      padding: 10px;
+      background-color: #2e7d32;
       color: white;
       border: none;
       border-radius: 8px;
       font-size: 16px;
       cursor: pointer;
     }
-    .reserve button:hover {
-      background: #1b5e20;
+    button:hover {
+      background-color: #1b5e20;
+    }
+    .toggle {
+      text-align: center;
+      margin-top: 15px;
+      color: #2e7d32;
+      cursor: pointer;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
-
-<header>
-  <h1>هومیار</h1>
-  <p>پلتفرم خدمات سلامت در منزل</p>
-</header>
-
-<section>
-  <h2 style="text-align:center; margin-top:30px;">چه خدمتی نیاز دارید؟</h2>
-  <div class="grid">
-    <div class="card" onclick="document.getElementById('profile').scrollIntoView({behavior: 'smooth'});">
-      <img src="https://img.icons8.com/ios-filled/50/2e7d32/bandage.png" alt="زخم">
-      <h3>مراقبت زخم</h3>
-      <p>درمان زخم، تعویض پانسمان، زخم بستر</p>
-    </div>
-    <div class="card">
-      <img src="https://img.icons8.com/ios-filled/50/2e7d32/injection.png" alt="تزریقات">
-      <h3>تزریقات در منزل</h3>
-      <p>تزریق آمپول، سرم و داروها</p>
-    </div>
-    <div class="card">
-      <img src="https://img.icons8.com/ios-filled/50/2e7d32/physical-therapy.png" alt="فیزیوتراپی">
-      <h3>فیزیوتراپی خانگی</h3>
-      <p>حرکات اصلاحی، توان‌بخشی بدون دستگاه</p>
-    </div>
-    <div class="card">
-      <img src="https://img.icons8.com/ios-filled/50/2e7d32/stethoscope.png" alt="پزشک">
-      <h3>ویزیت پزشک</h3>
-      <p>پزشک عمومی یا متخصص در محل</p>
-    </div>
-  </div>
-</section>
-
-<section id="profile">
-  <div class="profile-box">
-    <div class="profile-header">
-      <img src="https://img.icons8.com/ios-filled/100/2e7d32/nurse-female.png" alt="آقای حسینی">
-      <div class="info">
-        <h2>آقای حسینی</h2>
-        <p>کارشناس زخم با ۱۰ سال سابقه</p>
-        <p>امتیاز کاربران: ⭐️⭐️⭐️⭐️☆ (۴.۲ از ۵)</p>
+  <div class="container" id="form-box">
+    <h2 id="form-title">ثبت‌نام</h2>
+    <form id="signup-form">
+      <label for="name">نام کامل</label>
+      <input type="text" id="name" placeholder="مثلاً علی رضایی">
+      <label for="phone">شماره موبایل</label>
+      <input type="text" id="phone" placeholder="مثلاً 09121234567">
+      <label for="password">رمز عبور</label>
+      <input type="password" id="password" placeholder="••••••">
+      <div class="checkbox">
+        <input type="checkbox" id="terms"> قوانین را می‌پذیرم
       </div>
-    </div>
-    <div class="schedule">
-      <h3>برنامه زمانی فعالیت:</h3>
-      <div class="tags">
-        <div class="tag">روزهای زوج</div>
-        <div class="tag">ساعت ۸ تا ۱۱ صبح</div>
-        <div class="tag">غیرفعال در ایام تعطیل</div>
-      </div>
-    </div>
-    <div class="reserve">
-      <p>درخواست خود را برای این زمان ثبت کنید:</p>
-      <button onclick="alert('درخواست رزرو ثبت شد!')">رزرو برای پس‌فردا ساعت ۸ صبح</button>
-    </div>
+      <button type="button" onclick="submitForm()">ثبت‌نام</button>
+    </form>
+    <div class="toggle" onclick="toggleForm()">قبلاً ثبت‌نام کرده‌اید؟ ورود</div>
   </div>
-</section>
 
+  <script>
+    let isSignup = true;
+
+    function toggleForm() {
+      const title = document.getElementById('form-title');
+      const button = document.querySelector('button');
+      const toggle = document.querySelector('.toggle');
+      const terms = document.querySelector('.checkbox');
+
+      isSignup = !isSignup;
+      title.textContent = isSignup ? 'ثبت‌نام' : 'ورود';
+      button.textContent = isSignup ? 'ثبت‌نام' : 'ورود';
+      toggle.textContent = isSignup ? 'قبلاً ثبت‌نام کرده‌اید؟ ورود' : 'ثبت‌نام نکرده‌اید؟ ایجاد حساب';
+      terms.style.display = isSignup ? 'block' : 'none';
+    }
+
+    function submitForm() {
+      alert(isSignup ? 'ثبت‌نام با موفقیت انجام شد!' : 'ورود موفقیت‌آمیز بود!');
+    }
+  </script>
 </body>
 </html>
