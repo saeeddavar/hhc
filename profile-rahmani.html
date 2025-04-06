@@ -46,6 +46,22 @@
   </style>
 </head>
 <body>
+
+<!-- نوار اعلان -->
+<div id="notif-bar" style="background-color:#e8f5e9; color:#2e7d32; text-align:center; padding:10px; font-size:14px; display:none;">
+  ✅ عملیات با موفقیت انجام شد!
+</div>
+<script>
+  function showNotification(message = "✅ عملیات با موفقیت انجام شد!") {
+    const bar = document.getElementById("notif-bar");
+    bar.textContent = message;
+    bar.style.display = "block";
+    setTimeout(() => {
+      bar.style.display = "none";
+    }, 4000);
+  }
+</script>
+
   <div class="profile">
     <img src="https://img.icons8.com/ios-filled/100/2e7d32/medical-doctor.png" alt="آقای رحمانی">
     <h2>آقای رحمانی</h2>

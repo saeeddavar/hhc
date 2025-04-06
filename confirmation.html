@@ -8,47 +8,126 @@
   <style>
     body {
       font-family: Tahoma, sans-serif;
-      background-color: #e8f5e9;
+      background-color: #f4f4f4;
       margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      padding: 0;
+      text-align: center;
     }
-    .message-box {
-      background: white;
+    .box {
+      background-color: white;
+      max-width: 600px;
+      margin: 60px auto;
       padding: 40px;
       border-radius: 12px;
       box-shadow: 0 0 15px rgba(0,0,0,0.1);
-      text-align: center;
     }
-    h2 {
+    h1 {
       color: #2e7d32;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
     }
     p {
-      color: #555;
-      margin-bottom: 25px;
+      font-size: 15px;
+      color: #444;
+      line-height: 1.7;
     }
-    button {
+    .btn-group {
+      margin-top: 30px;
+    }
+    .btn {
+      display: inline-block;
       background-color: #2e7d32;
       color: white;
+      text-decoration: none;
       padding: 10px 20px;
-      border: none;
       border-radius: 8px;
-      cursor: pointer;
-      font-size: 15px;
+      margin: 0 10px;
+      font-size: 14px;
     }
-    button:hover {
-      background-color: #1b5e20;
+    form {
+      margin-top: 30px;
+      text-align: right;
+    }
+    textarea {
+      width: 100%;
+      height: 100px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      font-family: Tahoma;
+      font-size: 14px;
+    }
+    .rating {
+      direction: ltr;
+      text-align: left;
+      margin: 10px 0;
+    }
+    select {
+      width: 100%;
+      padding: 8px;
+      font-size: 14px;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
     }
   </style>
 </head>
 <body>
-  <div class="message-box">
-    <h2>رزرو با موفقیت انجام شد! 🎉</h2>
-    <p>کارشناس مربوطه در زمان انتخاب‌شده در منزل شما حاضر خواهد شد.</p>
-    <button onclick="location.href='homiyar_service_list.html'">بازگشت به لیست خدمات</button>
+
+<!-- نوار اعلان -->
+<div id="notif-bar" style="background-color:#e8f5e9; color:#2e7d32; text-align:center; padding:10px; font-size:14px; display:none;">
+  ✅ عملیات با موفقیت انجام شد!
+</div>
+<script>
+  function showNotification(message = "✅ عملیات با موفقیت انجام شد!") {
+    const bar = document.getElementById("notif-bar");
+    bar.textContent = message;
+    bar.style.display = "block";
+    setTimeout(() => {
+      bar.style.display = "none";
+    }, 4000);
+  }
+</script>
+
+
+<div class="box">
+  <h1>رزرو شما با موفقیت ثبت شد 🎉</h1>
+  <p>کارشناس خدمت‌دهنده به‌زودی با شما تماس خواهد گرفت.</p>
+  <p>جزئیات این خدمت را می‌توانید در <strong>داشبورد من</strong> مشاهده کنید.</p>
+
+  <div class="btn-group">
+    <a href="dashboard.html" class="btn">مشاهده داشبورد</a>
+    <a href="homiyar_service_list.html" class="btn">درخواست خدمت جدید</a>
   </div>
+
+  <form onsubmit="saveFeedback(event)">
+    <h3 style="color:#2e7d32;">ثبت بازخورد و امتیاز</h3>
+    <label>امتیاز شما:</label>
+    <select id="rating">
+      <option value="5">⭐️⭐️⭐️⭐️⭐️</option>
+      <option value="4">⭐️⭐️⭐️⭐️</option>
+      <option value="3">⭐️⭐️⭐️</option>
+      <option value="2">⭐️⭐️</option>
+      <option value="1">⭐️</option>
+    </select>
+    <label>نظرات شما:</label>
+    <textarea id="feedback" placeholder="نظرتان درباره کیفیت خدمت را بنویسید..."></textarea>
+    <br><br>
+    <button type="submit" class="btn">ثبت بازخورد</button>
+  </form>
+</div>
+
+<script>
+function saveFeedback(e) {
+  e.preventDefault();
+  const rating = document.getElementById("rating").value;
+  const feedback = document.getElementById("feedback").value;
+  const existing = JSON.parse(localStorage.getItem("homiyar_feedbacks") || "[]");
+  existing.push({ rating, feedback, date: new Date().toLocaleDateString("fa-IR") });
+  localStorage.setItem("homiyar_feedbacks", JSON.stringify(existing));
+  alert("بازخورد شما با موفقیت ذخیره شد ✅");
+  window.location.href = "dashboard.html";
+}
+</script>
+
 </body>
 </html>

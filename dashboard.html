@@ -31,7 +31,7 @@
     }
     .container {
       padding: 30px;
-      max-width: 800px;
+      max-width: 900px;
       margin: auto;
     }
     h2 {
@@ -53,9 +53,31 @@
       font-weight: bold;
       color: #00796b;
     }
+    .feedback-box {
+      background-color: #e8f5e9;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
+
+<!-- نوار اعلان -->
+<div id="notif-bar" style="background-color:#e8f5e9; color:#2e7d32; text-align:center; padding:10px; font-size:14px; display:none;">
+  ✅ عملیات با موفقیت انجام شد!
+</div>
+<script>
+  function showNotification(message = "✅ عملیات با موفقیت انجام شد!") {
+    const bar = document.getElementById("notif-bar");
+    bar.textContent = message;
+    bar.style.display = "block";
+    setTimeout(() => {
+      bar.style.display = "none";
+    }, 4000);
+  }
+</script>
+
 
 <header>
   <h1>هومیار</h1>
@@ -85,7 +107,30 @@
     <p><strong>وضعیت:</strong> <span class="status">در انتظار تأیید</span></p>
     <p><strong>نام خدمت‌دهنده:</strong> در حال تخصیص</p>
   </div>
+
+  <h2>🗣️ بازخوردهای من</h2>
+  <div id="feedback-list"></div>
 </div>
+
+<script>
+  const feedbacks = JSON.parse(localStorage.getItem("homiyar_feedbacks") || "[]");
+  const container = document.getElementById("feedback-list");
+
+  if (feedbacks.length === 0) {
+    container.innerHTML = "<p style='text-align:center;'>هیچ بازخوردی ثبت نشده است.</p>";
+  } else {
+    feedbacks.forEach(item => {
+      const div = document.createElement("div");
+      div.className = "card feedback-box";
+      div.innerHTML = `
+        <p><strong>امتیاز:</strong> ${"⭐️".repeat(item.rating)}</p>
+        <p><strong>نظر شما:</strong> ${item.feedback}</p>
+        <p><strong>تاریخ:</strong> ${item.date}</p>
+      `;
+      container.appendChild(div);
+    });
+  }
+</script>
 
 </body>
 </html>
