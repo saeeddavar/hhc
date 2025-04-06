@@ -3,31 +3,31 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>ورود به هومیار</title>
+  <title>ورود / ثبت‌نام | هومیار</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
       font-family: Tahoma, sans-serif;
       background-color: #f1f1f1;
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       height: 100vh;
       margin: 0;
     }
-    .login-box {
+    .auth-box {
       background-color: white;
       padding: 40px;
       border-radius: 12px;
       box-shadow: 0 0 15px rgba(0,0,0,0.1);
       text-align: center;
-      width: 320px;
+      width: 340px;
     }
-    .login-box h2 {
+    h2 {
       color: #2e7d32;
       margin-bottom: 20px;
     }
-    .login-box input[type="password"] {
+    input[type="text"], input[type="tel"] {
       padding: 10px;
       width: 100%;
       margin-bottom: 15px;
@@ -35,11 +35,11 @@
       border-radius: 6px;
       font-size: 14px;
     }
-    .login-box button {
+    button {
       background-color: #2e7d32;
       color: white;
       border: none;
-      padding: 10px 20px;
+      padding: 10px;
       font-size: 14px;
       cursor: pointer;
       border-radius: 6px;
@@ -48,23 +48,11 @@
   </style>
 </head>
 <body>
-
-<div class="login-box">
-  <h2>ورود با رمز عبور</h2>
-  <input type="password" id="passwordInput" placeholder="رمز را وارد کنید">
-  <button onclick="checkPassword()">ورود</button>
-</div>
-
-<script>
-  function checkPassword() {
-    const password = document.getElementById('passwordInput').value;
-    if (password === '09151114538') {
-      window.location.href = 'auth.html';
-    } else {
-      alert('رمز اشتباه است.');
-    }
-  }
-</script>
-
+  <div class="auth-box">
+    <h2>ورود یا ثبت‌نام</h2>
+    <input type="tel" placeholder="شماره موبایل">
+    <input type="text" placeholder="کد تأیید (شبیه‌سازی شده)">
+    <button onclick="location.href='homiyar_service_list.html'">ورود به خدمات</button>
+  </div>
 </body>
 </html>
